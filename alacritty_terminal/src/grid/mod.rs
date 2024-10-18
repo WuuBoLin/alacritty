@@ -338,17 +338,18 @@ impl<T: GridCell + Default + PartialEq> Grid<T> {
         T: ResetDiscriminant<D>,
         D: PartialEq,
     {
-        self.clear_history();
+        // self.clear_history();
+        self.clear_viewport();
 
         self.saved_cursor = Cursor::default();
         self.cursor = Cursor::default();
         self.display_offset = 0;
 
         // Reset all visible lines.
-        let range = self.topmost_line().0..(self.screen_lines() as i32);
-        for line in range.map(Line::from) {
-            self.raw[line].reset(&self.cursor.template);
-        }
+        // let range = self.topmost_line().0..(self.screen_lines() as i32);
+        // for line in range.map(Line::from) {
+        //     self.raw[line].reset(&self.cursor.template);
+        // }
     }
 }
 
